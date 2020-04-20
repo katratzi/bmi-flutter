@@ -12,11 +12,14 @@ class _InputPageState extends State<InputPage> {
       appBar: AppBar(
         title: Text('BMI CALCULATOR'),
       ),
-      body: Center(
-        child: Text('Body Text'),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
+      body: Container(
+        margin: EdgeInsets.all(15.0),
+        height: 200,
+        width: 170,
+        decoration: BoxDecoration(
+          color: Color(0xff1d1e33),
+          borderRadius: BorderRadius.circular(10.0),
+        ),
       ),
     );
   }
