@@ -12,10 +12,40 @@ class _InputPageState extends State<InputPage> {
       appBar: AppBar(
         title: Text('BMI CALCULATOR'),
       ),
-      body: Container(
+      body: Column(
+        children: <Widget>[
+          Expanded(
+            child: Row(
+              children: <Widget>[
+                roundedContainer(),
+                roundedContainer(),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Row(
+              children: <Widget>[
+                roundedContainer(),
+              ],
+            ),
+          ),
+          Expanded(
+            child: Row(
+              children: <Widget>[
+                roundedContainer(),
+                roundedContainer(),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget roundedContainer() {
+    return Expanded(
+      child: Container(
         margin: EdgeInsets.all(15.0),
-        height: 200,
-        width: 170,
         decoration: BoxDecoration(
           color: Color(0xff1d1e33),
           borderRadius: BorderRadius.circular(10.0),
