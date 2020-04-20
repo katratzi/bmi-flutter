@@ -17,23 +17,23 @@ class _InputPageState extends State<InputPage> {
           Expanded(
             child: Row(
               children: <Widget>[
-                roundedContainer(),
-                roundedContainer(),
+                ReusableCard(),
+                ReusableCard(),
               ],
             ),
           ),
           Expanded(
             child: Row(
               children: <Widget>[
-                roundedContainer(),
+                ReusableCard(),
               ],
             ),
           ),
           Expanded(
             child: Row(
               children: <Widget>[
-                roundedContainer(),
-                roundedContainer(),
+                ReusableCard(),
+                ReusableCard(),
               ],
             ),
           ),
@@ -41,8 +41,15 @@ class _InputPageState extends State<InputPage> {
       ),
     );
   }
+}
 
-  Widget roundedContainer() {
+class ReusableCard extends StatelessWidget {
+  const ReusableCard({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return Expanded(
       child: Container(
         margin: EdgeInsets.all(15.0),
