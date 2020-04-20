@@ -25,13 +25,13 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                     child: ReusableCard(
                   colour: activeCardColour,
-                  cardChild: IconContentWidget(
+                  cardChild: IconContent(
                       iconData: FontAwesomeIcons.mars, text: 'MALE'),
                 )),
                 Expanded(
                     child: ReusableCard(
                   colour: activeCardColour,
-                  cardChild: IconContentWidget(
+                  cardChild: IconContent(
                       iconData: FontAwesomeIcons.venus, text: 'FEMALE'),
                 )),
               ],
@@ -58,11 +58,11 @@ class _InputPageState extends State<InputPage> {
   }
 }
 
-class IconContentWidget extends StatelessWidget {
+class IconContent extends StatelessWidget {
   final IconData iconData;
   final String text;
 
-  const IconContentWidget({@required this.iconData, @required this.text});
+  const IconContent({@required this.iconData, @required this.text});
 
   @override
   Widget build(BuildContext context) {
