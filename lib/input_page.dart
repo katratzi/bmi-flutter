@@ -13,6 +13,7 @@ class InputPage extends StatefulWidget {
 
 class _InputPageState extends State<InputPage> {
   Gender selectedGender;
+  int height = 180;
 
   void selectMale() {}
 
@@ -64,6 +65,9 @@ class _InputPageState extends State<InputPage> {
             cardChild: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                SizedBox(
+                  height: 10,
+                ),
                 Text(
                   'HEIGHT',
                   style: klabelTextStyle,
@@ -73,9 +77,21 @@ class _InputPageState extends State<InputPage> {
                   crossAxisAlignment: CrossAxisAlignment.baseline,
                   textBaseline: TextBaseline.alphabetic,
                   children: <Widget>[
-                    Text('130', style: kNumberTextStyle),
+                    Text(height.toString(), style: kNumberTextStyle),
                     Text('cm', style: klabelTextStyle),
                   ],
+                ),
+                Slider(
+                  value: height.toDouble(),
+                  min: 120.0,
+                  max: 220.0,
+                  activeColor: Color(0xffeb1555),
+                  inactiveColor: Color(0xff8d8e98),
+                  onChanged: (double newValue) {
+                    setState(() {
+                      height = newValue.round();
+                    });
+                  },
                 )
               ],
             ),
