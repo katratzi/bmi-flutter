@@ -32,8 +32,8 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                     child: ReusableCard(
                         colour: selectedGender == Gender.male
-                            ? activeCardColour
-                            : inactiveCardColour,
+                            ? kactiveCardColour
+                            : kinactiveCardColour,
                         cardChild: IconContent(
                             iconData: FontAwesomeIcons.mars, label: 'MALE'),
                         onPress: () {
@@ -44,8 +44,8 @@ class _InputPageState extends State<InputPage> {
                 Expanded(
                     child: ReusableCard(
                   colour: selectedGender == Gender.female
-                      ? activeCardColour
-                      : inactiveCardColour,
+                      ? kactiveCardColour
+                      : kinactiveCardColour,
                   cardChild: IconContent(
                       iconData: FontAwesomeIcons.venus, label: 'FEMALE'),
                   onPress: () {
@@ -57,19 +57,19 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Expanded(child: ReusableCard(colour: activeCardColour)),
+          Expanded(child: ReusableCard(colour: kactiveCardColour)),
           Expanded(
             child: Row(
               children: <Widget>[
-                Expanded(child: ReusableCard(colour: activeCardColour)),
-                Expanded(child: ReusableCard(colour: activeCardColour)),
+                Expanded(child: ReusableCard(colour: kactiveCardColour)),
+                Expanded(child: ReusableCard(colour: kactiveCardColour)),
               ],
             ),
           ),
           Container(
             margin: EdgeInsets.only(top: 10.0),
-            color: bottomContainerColour,
-            height: bottomContainerHeight,
+            color: kbottomContainerColour,
+            height: kbottomContainerHeight,
             width: double.infinity,
           ),
         ],
