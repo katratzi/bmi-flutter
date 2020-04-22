@@ -2,11 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'reusable_card.dart';
 import 'icon_content.dart';
-
-const bottomContainerHeight = 80.0;
-const activeCardColour = Color(0xff1d1e33);
-const inactiveCardColour = Color(0xff111328);
-const bottomContainerColour = Color(0xffeb1555);
+import 'constants.dart';
 
 enum Gender { male, female }
 
