@@ -15,6 +15,7 @@ class _InputPageState extends State<InputPage> {
   Gender selectedGender;
   int height = 180;
   int weight = 60;
+  int age = 30;
 
   @override
   Widget build(BuildContext context) {
@@ -123,6 +124,7 @@ class _InputPageState extends State<InputPage> {
                             onPressed: () {
                               setState(() {
                                 weight--;
+                                weight = weight.clamp(0, 400);
                               });
                             },
                           ),
@@ -134,6 +136,7 @@ class _InputPageState extends State<InputPage> {
                             onPressed: () {
                               setState(() {
                                 weight++;
+                                weight = weight.clamp(0, 400);
                               });
                             },
                           )
@@ -142,7 +145,49 @@ class _InputPageState extends State<InputPage> {
                     ],
                   ),
                 )),
-                Expanded(child: ReusableCard(colour: kactiveCardColour)),
+                Expanded(
+                    child: ReusableCard(
+                  colour: kactiveCardColour,
+                  cardChild: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        'AGE',
+                        style: klabelTextStyle,
+                      ),
+                      Text(
+                        age.toString(),
+                        style: kNumberTextStyle,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          RoundIconButton(
+                            icon: FontAwesomeIcons.minus,
+                            onPressed: () {
+                              setState(() {
+                                age--;
+                                age = age.clamp(0, 100);
+                              });
+                            },
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          RoundIconButton(
+                            icon: FontAwesomeIcons.plus,
+                            onPressed: () {
+                              setState(() {
+                                age++;
+                                age = age.clamp(0, 100);
+                              });
+                            },
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                )),
               ],
             ),
           ),
