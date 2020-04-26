@@ -3,6 +3,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'reusable_card.dart';
 import 'icon_content.dart';
 import 'constants.dart';
+import 'results_page.dart';
 
 enum Gender { male, female }
 
@@ -191,11 +192,20 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            margin: EdgeInsets.only(top: 10.0),
-            color: kbottomContainerColour,
-            height: kbottomContainerHeight,
-            width: double.infinity,
+          GestureDetector(
+            onTap: () {
+              print('Calculate');
+              Navigator.push(context, MaterialPageRoute(builder: (context) {
+                return ResultsPage();
+              }));
+            },
+            child: Container(
+              child: Text('CALCULATE'),
+              margin: EdgeInsets.only(top: 10.0),
+              color: kbottomContainerColour,
+              height: kbottomContainerHeight,
+              width: double.infinity,
+            ),
           ),
         ],
       ),
