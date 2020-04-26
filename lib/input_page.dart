@@ -14,10 +14,7 @@ class InputPage extends StatefulWidget {
 class _InputPageState extends State<InputPage> {
   Gender selectedGender;
   int height = 180;
-
-  void selectMale() {}
-
-  void selectFemale() {}
+  int weight = 60;
 
   @override
   Widget build(BuildContext context) {
@@ -104,7 +101,45 @@ class _InputPageState extends State<InputPage> {
           Expanded(
             child: Row(
               children: <Widget>[
-                Expanded(child: ReusableCard(colour: kactiveCardColour)),
+                Expanded(
+                    child: ReusableCard(
+                  colour: kactiveCardColour,
+                  cardChild: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Text(
+                        'WEIGHT',
+                        style: klabelTextStyle,
+                      ),
+                      Text(
+                        weight.toString(),
+                        style: kNumberTextStyle,
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          FloatingActionButton(
+                            backgroundColor: Color(0xff4c4f5e),
+                            child: Icon(
+                              Icons.add,
+                              color: Colors.white,
+                            ),
+                          ),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          FloatingActionButton(
+                            backgroundColor: Color(0xff4c4f5e),
+                            child: Icon(
+                              Icons.remove,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                )),
                 Expanded(child: ReusableCard(colour: kactiveCardColour)),
               ],
             ),
