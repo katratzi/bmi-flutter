@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'reusable_card.dart';
-import 'icon_content.dart';
-import 'constants.dart';
+import 'package:bmi_flutter/components/bottom_button.dart';
+import 'package:bmi_flutter/components/reusable_card.dart';
+import 'package:bmi_flutter/components/icon_content.dart';
+import 'package:bmi_flutter/components/round_icon_button.dart';
 import 'results_page.dart';
+import 'package:bmi_flutter/constants.dart';
 
 enum Gender { male, female }
 
@@ -192,44 +194,19 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          GestureDetector(
+          BottomButton(
+            buttonTitle: 'CALCULATE',
             onTap: () {
-              print('Calculate');
-              Navigator.push(context, MaterialPageRoute(builder: (context) {
-                return ResultsPage();
-              }));
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => ResultsPage(),
+                ),
+              );
             },
-            child: Container(
-              child: Text('CALCULATE'),
-              margin: EdgeInsets.only(top: 10.0),
-              color: kbottomContainerColour,
-              height: kbottomContainerHeight,
-              width: double.infinity,
-            ),
           ),
         ],
       ),
-    );
-  }
-}
-
-class RoundIconButton extends StatelessWidget {
-  final IconData icon;
-  Function onPressed;
-  RoundIconButton({@required this.icon, @required this.onPressed});
-
-  @override
-  Widget build(BuildContext context) {
-    return RawMaterialButton(
-      onPressed: onPressed,
-      elevation: 0.0,
-      constraints: BoxConstraints.tightFor(
-        height: 48.0,
-        width: 48.0,
-      ),
-      shape: CircleBorder(),
-      fillColor: Color(0xff4c4f5e),
-      child: Icon(icon),
     );
   }
 }
