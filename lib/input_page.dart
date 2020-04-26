@@ -118,23 +118,25 @@ class _InputPageState extends State<InputPage> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          FloatingActionButton(
-                            backgroundColor: Color(0xff4c4f5e),
-                            child: Icon(
-                              Icons.add,
-                              color: Colors.white,
-                            ),
+                          RoundIconButton(
+                            icon: FontAwesomeIcons.minus,
+                            onPressed: () {
+                              setState(() {
+                                weight--;
+                              });
+                            },
                           ),
                           SizedBox(
                             width: 10,
                           ),
-                          FloatingActionButton(
-                            backgroundColor: Color(0xff4c4f5e),
-                            child: Icon(
-                              Icons.remove,
-                              color: Colors.white,
-                            ),
-                          ),
+                          RoundIconButton(
+                            icon: FontAwesomeIcons.plus,
+                            onPressed: () {
+                              setState(() {
+                                weight++;
+                              });
+                            },
+                          )
                         ],
                       )
                     ],
@@ -152,6 +154,27 @@ class _InputPageState extends State<InputPage> {
           ),
         ],
       ),
+    );
+  }
+}
+
+class RoundIconButton extends StatelessWidget {
+  final IconData icon;
+  Function onPressed;
+  RoundIconButton({@required this.icon, @required this.onPressed});
+
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      onPressed: onPressed,
+      elevation: 0.0,
+      constraints: BoxConstraints.tightFor(
+        height: 48.0,
+        width: 48.0,
+      ),
+      shape: CircleBorder(),
+      fillColor: Color(0xff4c4f5e),
+      child: Icon(icon),
     );
   }
 }
